@@ -1,5 +1,6 @@
 package ZUT.user;
 
+import ZUT.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.NonNull;
@@ -22,4 +23,7 @@ public class User {
     private String login;
     private String password;
     private String email;
+
+    @JoinColumn(name = "role_id")
+    private @NonNull Role role;
 }
