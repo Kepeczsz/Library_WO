@@ -3,12 +3,19 @@ package ZUT.usermeeting;
 import ZUT.meetingspot.MeetingSpot;
 import ZUT.user.User;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 @Entity
-public class UserMeeting implements Serializable {
+@Table(name = "usermeeting")
+public class UserMeeting  {
 
     @EmbeddedId
     UserMeetingKey id;

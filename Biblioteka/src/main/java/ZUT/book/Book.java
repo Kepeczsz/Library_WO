@@ -1,15 +1,19 @@
 package ZUT.book;
 
 import ZUT.author.Author;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.format.datetime.standard.DateTimeFormatterFactoryBean;
 
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 @Entity
+@Table(name = "book")
 public class Book {
     @Id
     private int id;
