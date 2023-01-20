@@ -1,15 +1,18 @@
 package ZUT.bookcatalog;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import ZUT.book.Book;
+import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+
 @Table(name = "bookcatalog")
 public class BookCatalog {
-    @OneToMany
+
     @JoinColumn(name = "book_id")
-    Long bookId;
+    Book book;
 }

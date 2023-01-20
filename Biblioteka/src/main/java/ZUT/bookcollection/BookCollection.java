@@ -1,15 +1,27 @@
 package ZUT.bookcollection;
 
 import ZUT.book.Book;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import ZUT.user.User;
+import jakarta.persistence.*;
+import lombok.*;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "bookcollection")
 public class BookCollection {
-    @OneToMany
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
     @JoinColumn(name = "bookId")
     Book book;
+
+    @JoinColumn(name = "userId")
+    @OneToOne
+    User user;
 }

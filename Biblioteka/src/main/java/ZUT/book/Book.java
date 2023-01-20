@@ -3,11 +3,10 @@ package ZUT.book;
 import ZUT.author.Author;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.format.datetime.standard.DateTimeFormatterFactoryBean;
-
 import java.time.LocalDate;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity

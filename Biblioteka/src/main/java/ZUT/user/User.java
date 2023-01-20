@@ -4,6 +4,7 @@ import ZUT.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.NonNull;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @AllArgsConstructor
@@ -24,6 +25,7 @@ public class User {
     private String password;
     private String email;
 
+    @ManyToOne
     @JoinColumn(name = "role_id")
     private @NonNull Role role;
 }
