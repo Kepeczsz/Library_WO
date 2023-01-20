@@ -5,16 +5,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
-@Entity
+
 @AllArgsConstructor
-@NoArgsConstructor
-@RequiredArgsConstructor
 @Getter
 @Setter
+@Entity
 @Table(name = "meetingspot")
 public class MeetingSpot {
     @Id
-    private int Id;
+    private Long Id;
     private String name;
     private String City;
 }

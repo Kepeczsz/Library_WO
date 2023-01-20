@@ -8,15 +8,13 @@ import lombok.*;
 import java.time.LocalDate;
 
 @AllArgsConstructor
-@NoArgsConstructor
-@RequiredArgsConstructor
 @Getter
 @Setter
 @Entity
 @Table(name = "author")
 public class Author {
     @Id
-    private int id;
+    private Long id;
     private String name;
     private String surname;
     private boolean gender;
