@@ -20,14 +20,14 @@ public class UserMeeting  {
     UserMeetingKey id;
 
     @ManyToOne
-    @JoinColumn(name="user_id")
     @MapsId("userId")
-    User user;
+    @JoinColumn(name="user_id")
+    private @NonNull User user;
 
     @ManyToOne
-    @JoinColumn(name="meeting_id")
     @MapsId("meetingSpotId")
-    MeetingSpot meetingSpot;
+    @JoinColumn(name="meetingspot_id")
+    private @NonNull MeetingSpot meetingSpot;
 
     LocalDate dateOfMeeting;
 }

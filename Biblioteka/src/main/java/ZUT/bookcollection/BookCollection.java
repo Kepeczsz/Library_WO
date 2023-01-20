@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BookCollection {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @JoinColumn(name = "bookId")
+    @JoinColumn(name = "book_id")
+    @ManyToOne
     Book book;
 
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     @OneToOne
     User user;
 }

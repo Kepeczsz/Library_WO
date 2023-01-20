@@ -4,7 +4,6 @@ import ZUT.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.NonNull;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @AllArgsConstructor

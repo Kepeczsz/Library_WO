@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @Setter
 @Entity
 @Table(name = "author")
-
 public class Author {
     @Id
     private Long id;

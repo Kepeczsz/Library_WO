@@ -18,7 +18,7 @@ public class Book {
     private String description;
     private LocalDate localDate;
 
+    @ManyToOne
     @JoinColumn(name = "author_id")
-    @ManyToMany
-    Author author;
+    private @NonNull Author author;
 }
