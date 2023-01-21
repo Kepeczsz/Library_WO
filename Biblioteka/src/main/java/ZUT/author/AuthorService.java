@@ -1,10 +1,10 @@
 package ZUT.author;
 
-import ZUT.book.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class AuthorService {
@@ -17,5 +17,23 @@ public class AuthorService {
 
     public List<Author> getAllAuthors(){
         return authorRepository.findAll();
+    }
+
+    public Author addAuthor(Author author){
+        return authorRepository.save(author);
+    }
+    public Author getById(Long id) {
+        return authorRepository.findById(id).orElseThrow(() ->
+                new NoSuchElementException("Author not found with id " + id));
+    }
+    public Author updateAuthor(Long id, Author authorDetails) {
+        Author author = getById(id);
+        author.setName(authorDetails.getName());
+        author.setSurname(authorDetails.getSurname());
+        return authorRepository.save(authorDetails);
+    }
+    public String delete(Long id) {
+        authorRepository.deleteById(id);
+        return "(CODE 200)\n";
     }
 }

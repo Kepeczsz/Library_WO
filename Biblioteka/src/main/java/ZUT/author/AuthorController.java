@@ -1,11 +1,7 @@
 package ZUT.author;
 
-import ZUT.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +17,22 @@ public class AuthorController {
     @GetMapping
     public List<Author> getAllAuthors(){
        return authorService.getAllAuthors();
+    }
+    @GetMapping({"/{id}"})
+    public Author getAuthor(@PathVariable Long id) {
+        return authorService.getById(id);
+    }
+    @PostMapping
+    public Author addAuthor(@RequestBody Author author){
+        return authorService.addAuthor(author);
+    }
+    @PutMapping({"/{id}"})
+    public Author updateAuthor(@PathVariable Long id, @RequestBody Author authorDetails) {
+        return authorService.updateAuthor(id, authorDetails);
+    }
+    @DeleteMapping({"/{id}"})
+    public String deleteAuthor(@PathVariable Long id) {
+        authorService.delete(id);
+        return "(CODE 200)\n";
     }
 }
