@@ -1,8 +1,6 @@
 package ZUT.role;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 public class Role {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "role_sequence")
+    @SequenceGenerator(name = "role_sequence", sequenceName = "role_sequence", allocationSize = 1)
     private Long Id;
     private String name;
 }

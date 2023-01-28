@@ -36,4 +36,8 @@ public class AuthorService {
         authorRepository.deleteById(id);
         return "(CODE 200)\n";
     }
+
+    public void deleteAuthor(Long id) {
+        authorRepository.deleteById(id);
+    }
 }

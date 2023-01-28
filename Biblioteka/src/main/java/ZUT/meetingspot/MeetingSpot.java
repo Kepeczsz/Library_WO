@@ -1,8 +1,6 @@
 package ZUT.meetingspot;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Table(name = "meetingspot")
 public class MeetingSpot {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "meeting_spot_sequence")
+    @SequenceGenerator(name = "meeting_spot_sequence", sequenceName = "meeting_spot_sequence", allocationSize = 1)
     private Long Id;
     private String name;
     private String City;

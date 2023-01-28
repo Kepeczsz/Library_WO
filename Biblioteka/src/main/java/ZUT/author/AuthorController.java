@@ -22,7 +22,7 @@ public class AuthorController {
     public Author getAuthor(@PathVariable Long id) {
         return authorService.getById(id);
     }
-    @PostMapping
+    @PostMapping("/add")
     public Author addAuthor(@RequestBody Author author){
         return authorService.addAuthor(author);
     }

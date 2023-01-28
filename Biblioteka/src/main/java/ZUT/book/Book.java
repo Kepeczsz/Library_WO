@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @Table(name = "book")
 public class Book {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_sequence")
     private Long id;
     private String title;
     private String description;
