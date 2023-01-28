@@ -1,4 +1,4 @@
-package ZUT.UserTests;
+package ZUT.AuthorTests;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -10,19 +10,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-
 @SpringBootTest
 @AutoConfigureMockMvc
-public class DeleteUserTest {
+public class CreateAuthorTest {
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void deleteUser() throws Exception {
-        // delete
-        mockMvc.perform(delete("/authors/507")).andExpect(status().isOk());
+    public void addUser() throws Exception {
 
-        String requestBody = "{\"id\":\"507\",\"name\":\"TestUsera\",\"surname\":\"Uzytkownik\"," +
-                "\"gender\": 0,\"birthDate\":\"2002-06-01\" }";
+        String requestBody = "{\"name\":\"TestUsera\",\"surname\":\"Uzytkownik\"," +
+                             "\"gender\": 0,\"birthDate\":\"2002-06-01\" }";
+        mockMvc.perform(post("/authors/add").contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType("application/json"));
     }
+
 }

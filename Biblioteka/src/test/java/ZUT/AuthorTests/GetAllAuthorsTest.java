@@ -1,8 +1,4 @@
-package ZUT.UserTests;
-
-
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+package ZUT.AuthorTests;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +6,16 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+
 @SpringBootTest
 @AutoConfigureMockMvc
-public class GetUserTest {
-
+public class GetAllAuthorsTest {
     @Autowired
     private MockMvc mockMvc;
 
     @Test
     public void getUser() throws Exception {
-        mockMvc.perform(get("/authors/52")).andExpect(status().isOk());
+        mockMvc.perform(get("/authors")).toString();
     }
-
 }

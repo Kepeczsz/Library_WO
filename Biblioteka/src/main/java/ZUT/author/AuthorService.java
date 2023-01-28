@@ -32,12 +32,11 @@ public class AuthorService {
         author.setSurname(authorDetails.getSurname());
         return authorRepository.save(authorDetails);
     }
-    public String delete(Long id) {
-        authorRepository.deleteById(id);
-        return "(CODE 200)\n";
-    }
-
-    public void deleteAuthor(Long id) {
-        authorRepository.deleteById(id);
+    public boolean delete(Long id) {
+        if (authorRepository.existsById(id)) {
+            authorRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

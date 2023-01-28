@@ -18,11 +18,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
     @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
     private Long id;
-    private String name;
-    private String surname;
-    private String login;
-    private String password;
-    private String email;
+    private @NonNull String name;
+    private @NonNull String surname;
+    private @NonNull String login;
+    private @NonNull String password;
+    private @NonNull String email;
 
     @ManyToOne
     @JoinColumn(name = "role_id")

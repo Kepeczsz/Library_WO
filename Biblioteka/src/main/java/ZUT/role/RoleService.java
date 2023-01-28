@@ -31,8 +31,11 @@ public class RoleService {
         role.setName(roleDetails.getName());
         return roleRepository.save(role);
     }
-    public String delete(Long id) {
+    public boolean delete(Long id) {
+        if (roleRepository.existsById(id)) {
             roleRepository.deleteById(id);
-        return "(CODE 200)\n";
+            return true;
+        }
+        return false;
     }
 }

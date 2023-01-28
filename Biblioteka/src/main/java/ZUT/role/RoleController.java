@@ -1,6 +1,8 @@
 package ZUT.role;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,7 +37,9 @@ public class RoleController {
     }
 
     @DeleteMapping({"/{id}"})
-    public void deleteRole(@PathVariable Long id) {
-        this.roleService.delete(id);
+    public  ResponseEntity<Void> deleteRole(@PathVariable Long id) {
+        if(roleService.delete(id))
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }

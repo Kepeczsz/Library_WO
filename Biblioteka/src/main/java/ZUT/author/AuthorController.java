@@ -1,8 +1,12 @@
 package ZUT.author;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -31,8 +35,9 @@ public class AuthorController {
         return authorService.updateAuthor(id, authorDetails);
     }
     @DeleteMapping({"/{id}"})
-    public String deleteAuthor(@PathVariable Long id) {
-        authorService.delete(id);
-        return "(CODE 200)\n";
+    public ResponseEntity<Void> deleteAuthor(@PathVariable Long id) {
+        if(authorService.delete(id))
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
