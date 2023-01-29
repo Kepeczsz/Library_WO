@@ -20,6 +20,6 @@ public class DeleteRoleTest {
     @Test
     public void deleteRole() throws Exception {
 
-        mockMvc.perform(delete("/roles/1")).andExpect(status().isOk());
+        mockMvc.perform(delete("/roles/1")).andExpect(status().isAccepted());
     }
 }

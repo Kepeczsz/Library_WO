@@ -19,6 +19,6 @@ public class DeleteAuthorTest {
     @Test
     public void deleteUser() throws Exception {
         // delete
-        mockMvc.perform(delete("/authors/507")).andExpect(status().isOk());
+        mockMvc.perform(delete("/authors/507")).andExpect(status().isAccepted());
     }
 }
